@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --ink: #17221d;
+    --muted: #65736b;
+    --paper: #f2efe7;
+    --panel: #fbfaf6;
+    --line: #d6d5ca;
+    --lime: #c9f36a;
+    --coral: #ff765e;
+    --sage: #dfe9d1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: 'Space Grotesk', sans-serif;
+    background-image: linear-gradient(135deg, rgba(201, 243, 106, .18), transparent 38%), repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(23, 34, 29, .035) 39px);
+}
+
+.shell {
+    width: min(1160px, calc(100% - 48px));
+    min-height: calc(100vh - 76px);
+    margin: auto;
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    align-items: center;
+    gap: clamp(48px, 9vw, 140px);
+    padding: 70px 0 50px;
+}
+
+.intro { animation: rise .7s ease both; }
+.kicker, .eyebrow, footer, .hint {
+    font: 500 11px 'DM Mono', monospace;
+    letter-spacing: 0;
+}
+.kicker { color: var(--muted); }
+.kicker span { display: inline-block; width: 5px; height: 5px; margin: 0 8px 2px; border-radius: 50%; background: var(--coral); }
+h1 { margin: 28px 0 22px; font-size: clamp(58px, 7.8vw, 104px); line-height: .86; letter-spacing: 0; font-weight: 600; }
+h1 em { color: #708d39; font-style: normal; }
+.lede { max-width: 300px; color: var(--muted); font-size: 17px; line-height: 1.45; }
+.status { margin-top: 54px; font: 500 12px 'DM Mono', monospace; }
+.status i { display: inline-block; width: 8px; height: 8px; margin-right: 9px; border-radius: 50%; background: #83bb3d; box-shadow: 0 0 0 4px rgba(131, 187, 61, .17); }
+
+.checker { padding: clamp(28px, 5vw, 58px); background: var(--panel); border: 1px solid var(--line); box-shadow: 14px 14px 0 rgba(23, 34, 29, .09); animation: rise .7s .12s ease both; }
+.checker-head { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0; color: var(--muted); }
+h2 { margin: 0 0 17px; font-size: clamp(25px, 3vw, 39px); line-height: 1; font-weight: 500; }
+label { display: block; margin: 30px 0 10px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+textarea { display: block; width: 100%; min-height: 190px; resize: vertical; padding: 19px; border: 1px solid var(--line); border-radius: 0; outline: 0; color: var(--ink); background: #f5f4ee; font: 16px/1.5 'Space Grotesk', sans-serif; }
+textarea:focus { border-color: var(--ink); box-shadow: 4px 4px 0 var(--lime); }
+.form-foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 19px; }
+.hint { color: var(--muted); font-size: 10px; }
+button { padding: 15px 18px; border: 1px solid var(--ink); border-radius: 0; color: var(--ink); background: var(--lime); cursor: pointer; font: 600 13px 'Space Grotesk', sans-serif; transition: transform .15s ease, box-shadow .15s ease; }
+button span { margin-left: 12px; font-size: 18px; vertical-align: -1px; }
+button:hover, button:focus-visible { transform: translate(-3px, -3px); box-shadow: 5px 5px 0 var(--ink); outline: 0; }
+.result { display: flex; align-items: center; gap: 16px; margin-top: 28px; padding: 18px; border: 1px solid var(--ink); background: var(--sage); }
+.result.spam { background: #ffe0d8; }
+.result.error { background: #fff0bb; }
+.result-mark { display: grid; width: 38px; height: 38px; place-items: center; flex: 0 0 38px; color: var(--panel); background: var(--ink); font-size: 22px; }
+.result strong { display: block; margin-top: 5px; font-size: 22px; }
+footer { width: min(1160px, calc(100% - 48px)); margin: auto; padding-bottom: 24px; color: var(--muted); }
+footer span { margin: 0 8px; color: var(--coral); }
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 760px) { .shell { grid-template-columns: 1fr; gap: 45px; padding-top: 46px; } .status { margin-top: 30px; } .checker-head { display: block; } .checker-head .eyebrow { margin-bottom: 14px; } .form-foot { align-items: flex-start; flex-direction: column; } button { width: 100%; } }
